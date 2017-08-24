@@ -14,7 +14,7 @@
    * Here's the documentation you need:
    * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
    */
-
+$(function(){
   var saveButton = $('#save-button');
   var loadButton = $('#load-button');
 
@@ -26,11 +26,30 @@
     return $('#save-me').val();
   }
 
+//Save button
+  function saveText() {
+    localStorage.setItem('savedText', getText());
+    $('#save-me').val('');
+  }
+
+  $('#save-button').click(saveText);
+
+//Load button
+  function setText(text) {
+    return $('#save-me').val(text);
+
+  }
+  $('#load-button').click(function () {
+    setText(localStorage.getItem('savedText'))
+
+});
+
   /**
    * Puts different text
    * @param {String} text the stuff you want to put in the box
    */
-  function setText(text) {
-    return $('#save-me').val(text);
-  }
+
+
+})
+
 })();

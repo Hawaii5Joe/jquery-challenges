@@ -42,7 +42,44 @@
   //code in here wont run until page loads
   $(function(){
 
+    //T1
+    let t1Shots = $('#teamone-numshots');
+    let t1Goals = $('#teamone-numhits');
 
+    $('#teamone-shoot').click(function() {
+      t1Shots.html(parseInt(t1Shots.html())+1)
+      if (Math.random()>.4) {
+        t1Goals.html(parseInt(t1Goals.html())+1)
+        $('body').css({background: "lightpink"});
+        $('body').css({color: "white"});
+      }
+
+    })
+
+    //T2
+    let t2Shots = $('#teamtwo-numshots');
+    let t2Goals = $('#teamtwo-numhits');
+
+    $('#teamtwo-shoot').click(function() {
+      t2Shots.html(parseInt(t2Shots.html())+1)
+      if (Math.random()>.45) {
+        t2Goals.html(parseInt(t2Goals.html())+1)
+        $('body').css({background: "lightgreen"});
+        $('body').css({color: "white"});
+      }
+    })
+
+    //RESET
+    let numReset = $('#num-resets');
+    $('#reset').click(function () {
+      numReset.html(parseInt(numReset.html())+1)
+      t1Shots.html(0)
+      t2Shots.html(0)
+      t1Goals.html(0)
+      t2Goals.html(0)
+      $('body').css({background: "white"});
+      $('body').css({color: "black"});
+    })
 
   })
 
